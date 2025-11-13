@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth import logout
 from .models import Item, Category
-from django.shortcuts import get_object_or_404
+
+from .forms import SignupForm
+ 
 
 # Create your views here.
 def home(request):
@@ -31,4 +34,20 @@ def detail(request, pk):
     }
 
     return render(request, 'store/item.html', context)
+
+def register(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = SignupForm()
+    
+    context = {
+        'form': form
+    }
+
+    return render(request, 'store/signup.html', context)
 
