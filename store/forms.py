@@ -51,3 +51,38 @@ class SignupForm(UserCreationForm):
             'class': 'form-control'
         }
     ))
+
+class NewItemForm(forms.Model.Form):
+    class Meta:
+        model = Item
+        fields = ['category','name','description','price','image']
+
+    widgets = {
+        'category':forms.Select(
+            attrs={
+                'class':'forms.Select'
+            }
+        ),
+        'name':forms.TextInput(
+            attrs={
+                'class':'forms.Select'
+            }
+        ),
+        'description':forms.Textarea(
+            attrs={
+                'class':'forms.Select',
+                'style':'height: 100px'
+            }
+        ),
+        'price':forms.TextInput(
+            attrs={
+                'class':'forms.Select'
+            }
+        ),
+        'image':forms.FileInput(
+            attrs={
+                'class':'forms.Select'
+            }
+        ),
+    }
+       
