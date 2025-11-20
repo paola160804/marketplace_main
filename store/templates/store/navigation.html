@@ -16,25 +16,27 @@
                         Contact
                     </a>
                 </li>
+            
                 {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'add_item' %}" class="nav-link">Add Item</a>
+                    </li>
                     <li class="nav-item">
                         <a href="{% url 'logout' %}" class="nav-link">Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a href="{% url 'login'}" class="nav-link active">
+                        <a href="{% url 'login' %}" class="nav-link active">
                             Login
                         </a>
-                     </li>
-                     <li class="nav-item">
-                        <a href="{% url 'register'}" class="nav-link active">
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'register' %}" class="nav-link active">
                             Register
                         </a>
-                     </li>
+                    </li>
 
-                     
-
-                
+                {% endif %}
             </ul>
         </div>
     </div>

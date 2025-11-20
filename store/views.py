@@ -3,7 +3,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from .models import Item, Category
 
-from .forms import SignupForm
+from .forms import SignupForm, NewItemForm
  
 
 # Create your views here.
@@ -76,6 +76,6 @@ def add_item(request):
             'title': 'New Item'
         }
 
-     return render(request, 'store/form.html', context)
+        return render(request, 'store/form.html', context)
 
 
